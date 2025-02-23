@@ -20,8 +20,8 @@ try:
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS alx_book_store")
         print("🎉 Database 'alx_book_store' created successfully!")
 
-except Error as e:
-    # Handling connection errors and other exceptions
+except mysql.connector.Error as e:
+    # Handling MySQL connection and query errors
     print(f"❌ Error: {e}")
 
 finally:
