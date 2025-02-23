@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS orders (
 -- Create Order_Details table with foreign keys referencing Orders and Books
 CREATE TABLE IF NOT EXISTS order_details (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
-    book_id INT,
+    order_id INT,  -- This column references the order_id in the Orders table
+    book_id INT,   -- This column references the book_id in the Books table
     quantity DOUBLE,
     FOREIGN KEY (order_id) REFERENCES orders(order_id),  -- Foreign key referencing orders
     FOREIGN KEY (book_id) REFERENCES books(book_id)  -- Foreign key referencing books
