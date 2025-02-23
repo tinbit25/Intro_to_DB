@@ -1,13 +1,6 @@
 -- Use the alx_book_store database
 USE alx_book_store;
 
--- Drop tables if they exist to prevent errors
-DROP TABLE IF EXISTS order_details;
-DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS books;
-DROP TABLE IF EXISTS authors;
-DROP TABLE IF EXISTS customers;
-
 -- Create Authors table
 CREATE TABLE IF NOT EXISTS authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -32,20 +25,20 @@ CREATE TABLE IF NOT EXISTS customers (
     address TEXT
 );
 
--- Create Orders table with a foreign key referencing Customers
+-- Create Orders table
 CREATE TABLE IF NOT EXISTS orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT, -- This column references the customer_id in the Customers table
+    customer_id INT, -- Foreign key referencing customers table
     order_date DATE,
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)  -- Inserted the FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)  -- Foreign key added here
 );
 
--- Create Order_Details table with foreign keys referencing Orders and Books
+-- Create Order_Details table
 CREATE TABLE IF NOT EXISTS order_details (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,  -- This column references the order_id in the Orders table
-    book_id INT,   -- This column references the book_id in the Books table
+    order_id INT,  -- Foreign key referencing orders table
+    book_id INT,   -- Foreign key referencing books table
     quantity DOUBLE,
-    FOREIGN KEY (order_id) REFERENCES orders(order_id),  -- Foreign key referencing orders
-    FOREIGN KEY (book_id) REFERENCES books(book_id)  -- Foreign key referencing books
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),  -- Added this line as requested
+    FOREIGN KEY (book_id) REFERENCES books(book_id)  -- Added this line as requested
 );
