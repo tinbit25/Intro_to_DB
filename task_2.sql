@@ -1,6 +1,13 @@
 -- Use the alx_book_store database
 USE alx_book_store;
 
+-- Drop tables if they already exist to avoid conflicts
+DROP TABLE IF EXISTS order_details;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS customers;
+
 -- Create Authors table
 CREATE TABLE IF NOT EXISTS authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
