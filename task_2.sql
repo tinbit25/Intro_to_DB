@@ -25,15 +25,15 @@ CREATE TABLE IF NOT EXISTS customers (
     address TEXT
 );
 
--- Create Orders table (fixed foreign key)
+-- Create Orders table with foreign key referencing Customers
 CREATE TABLE IF NOT EXISTS orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
     order_date DATE,
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)  -- Foreign key added here
 );
 
--- Create Order_Details table (fixed foreign key)
+-- Create Order_Details table with foreign keys referencing Orders and Books
 CREATE TABLE IF NOT EXISTS order_details (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
