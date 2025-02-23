@@ -1,7 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 
-db_name = "alxbookstore"  # Updated to match the exact name as per the requirement
+db_name = "alx_book_store"  # Ensure this matches the expected name
 
 try:
     # Connecting to the MySQL server
@@ -16,9 +16,9 @@ try:
         print("✅ Connected to MySQL Server!")  
         cursor = connection.cursor()
 
-        # Create the database if it doesn't already exist
-        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
-        print(f"🎉 Database '{db_name}' created successfully!")
+        # Execute the exact statement required
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS alx_book_store")
+        print("🎉 Database 'alx_book_store' created successfully!")
 
 except Error as e:
     # Handling connection errors and other exceptions
